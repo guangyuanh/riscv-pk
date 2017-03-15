@@ -32,10 +32,12 @@ static void mstatus_init()
   write_csr(mie, ~MIP_MTIP); // disable timer; enable other interrupts
 
   // Initialize events for counters
-  write_csr(mhpmevent3, 4);  // d$ req
-  write_csr(mhpmevent4, 5);  // i$ req
-  write_csr(mhpmevent5, 32); // d$ miss
-  write_csr(mhpmevent6, 33); // i$ miss
+  write_csr(mhpmevent3, 4);  // d$ miss
+  write_csr(mhpmevent4, 5);  // i$ miss
+  write_csr(mhpmevent5, 32); // d$ req
+  write_csr(mhpmevent6, 33); // i$ req
+  write_csr(mhpmevent7, 34); // dtlb miss
+  write_csr(mhpmevent8, 35); // itlb miss
 }
 
 // send S-mode interrupts and most exceptions straight to S-mode
