@@ -42,6 +42,7 @@ static void __htif_interrupt()
 
 static void do_tohost_fromhost(uintptr_t dev, uintptr_t cmd, uintptr_t data)
 {
+  asm volatile ("addi zero, sp, 32");
   spinlock_lock(&htif_lock);
     while (tohost)
       __htif_interrupt();
@@ -58,6 +59,7 @@ static void do_tohost_fromhost(uintptr_t dev, uintptr_t cmd, uintptr_t data)
       }
     }
   spinlock_unlock(&htif_lock);
+  asm volatile ("addi zero, sp, 33");
 }
 
 static void htif_interrupt()
