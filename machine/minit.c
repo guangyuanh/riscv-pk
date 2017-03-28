@@ -37,6 +37,12 @@ static void mstatus_init()
   write_csr(mhpmevent6, 33); // i$ req
   write_csr(mhpmevent7, 34); // dtlb miss
   write_csr(mhpmevent8, 35); // itlb miss
+  write_csr(mhpmevent9, 36); // enter GC
+  write_csr(mhpmevent10, 37); // exit GC
+  write_csr(mhpmevent11, 38); // enter JIT
+  write_csr(mhpmevent12, 39); // exit JIT
+  write_csr(mhpmevent13, 40); // cycles in GC
+  write_csr(mhpmevent14, 41); // cycles in JIT
 }
 
 // send S-mode interrupts and most exceptions straight to S-mode
