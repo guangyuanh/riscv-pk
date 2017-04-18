@@ -32,18 +32,24 @@ static void mstatus_init()
   write_csr(mie, ~MIP_MTIP); // disable timer; enable other interrupts
 
   // Initialize events for counters
-  write_csr(mhpmevent3, 4);  // d$ miss
-  write_csr(mhpmevent4, 5);  // i$ miss
-  write_csr(mhpmevent5, 32); // d$ req
-  write_csr(mhpmevent6, 33); // i$ req
-  write_csr(mhpmevent7, 34); // dtlb miss
-  write_csr(mhpmevent8, 35); // itlb miss
-  write_csr(mhpmevent9, 36); // enter GC
-  write_csr(mhpmevent10, 37); // exit GC
-  write_csr(mhpmevent11, 38); // enter JIT
-  write_csr(mhpmevent12, 39); // exit JIT
-  write_csr(mhpmevent13, 40); // cycles in GC
-  write_csr(mhpmevent14, 41); // cycles in JIT
+  write_csr(mhpmevent3, 1);  // branches
+  write_csr(mhpmevent4, 2);  // branch mispredictions
+  write_csr(mhpmevent5, 3);  // user-level instructions
+  write_csr(mhpmevent6, 29); // user-level branches
+  write_csr(mhpmevent7, 30); // user-level branch mispredictions
+  write_csr(mhpmevent8, 18); // pipeline flush
+  write_csr(mhpmevent9, 4);  // d$ miss
+  write_csr(mhpmevent10, 5);  // i$ miss
+  write_csr(mhpmevent11, 34); // dtlb miss
+  write_csr(mhpmevent12, 35); // itlb miss
+  write_csr(mhpmevent13, 38); // enter GC
+  write_csr(mhpmevent14, 39); // exit GC
+  write_csr(mhpmevent15, 40); // enter JIT
+  write_csr(mhpmevent16, 41); // exit JIT
+  write_csr(mhpmevent17, 42); // cycles in GC
+  write_csr(mhpmevent18, 43); // cycles in JIT
+  write_csr(mhpmevent19, 44); // insts in GC
+  write_csr(mhpmevent20, 45); // insts in JIT
 }
 
 // send S-mode interrupts and most exceptions straight to S-mode
