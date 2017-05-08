@@ -63,7 +63,7 @@ static void query_harts(const char* config_string)
 {
   for (int core = 0, hart; ; core++) {
     for (hart = 0; ; hart++) {
-      char buf[32];
+      char buf[40];
       snprintf(buf, sizeof buf, "core{%d{%d{ipi", core, hart);
       query_result res = query_config_string(config_string, buf);
       if (!res.start)
