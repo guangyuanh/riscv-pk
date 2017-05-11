@@ -42,14 +42,9 @@ static void mstatus_init()
   write_csr(mhpmevent10, 5);  // i$ miss
   write_csr(mhpmevent11, 34); // dtlb miss
   write_csr(mhpmevent12, 35); // itlb miss
-  write_csr(mhpmevent13, 38); // enter GC
-  write_csr(mhpmevent14, 39); // exit GC
-  write_csr(mhpmevent15, 40); // enter JIT
-  write_csr(mhpmevent16, 41); // exit JIT
-  write_csr(mhpmevent17, 42); // cycles in GC
-  write_csr(mhpmevent18, 43); // cycles in JIT
-  write_csr(mhpmevent19, 44); // insts in GC
-  write_csr(mhpmevent20, 45); // insts in JIT
+  write_csr(mhpmevent13, 46); // issued instructions
+  write_csr(mhpmevent14, 47); // non-issued slots due to empty windows
+  write_csr(mhpmevent15, 48); // non-issued slots due to harzards
 }
 
 // send S-mode interrupts and most exceptions straight to S-mode
