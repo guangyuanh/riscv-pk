@@ -45,6 +45,8 @@ static void mstatus_init()
   write_csr(mhpmevent13, 46); // issued instructions
   write_csr(mhpmevent14, 47); // non-issued slots due to empty windows
   write_csr(mhpmevent15, 48); // non-issued slots due to harzards
+  write_csr(mhpmevent16, 49); // l2 miss
+  write_csr(mhpmevent17, 50); // l2 hit
 }
 
 // send S-mode interrupts and most exceptions straight to S-mode
