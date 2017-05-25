@@ -47,6 +47,8 @@ static void mstatus_init()
   write_csr(mhpmevent15, 48); // non-issued slots due to harzards
   write_csr(mhpmevent16, 49); // l2 miss
   write_csr(mhpmevent17, 50); // l2 hit
+  write_csr(mhpmevent18, 41); // cycles in GC
+  write_csr(mhpmevent19, 42); // cycles in JIT
 }
 
 // send S-mode interrupts and most exceptions straight to S-mode
