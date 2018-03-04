@@ -15,7 +15,7 @@ static void handle_illegal_instruction(trapframe_t* tf)
     kassert(len == 2);
 
   dump_tf(tf);
-  panic("An illegal instruction was executed!");
+  panic("[GuangyuanTest]An illegal instruction was executed!");
 }
 
 static void handle_breakpoint(trapframe_t* tf)

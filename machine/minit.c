@@ -22,6 +22,10 @@ static void mstatus_init()
   ms = INSERT_FIELD(ms, MSTATUS_FS, 1);
   write_csr(mstatus, ms);
 
+  // Enable XS
+  if (supports_extension('X'))
+    set_csr(mstatus, (MSTATUS_XS & (MSTATUS_XS >> 1)));
+
   // Make sure the hart actually supports the VM mode we want
   ms = read_csr(mstatus);
   assert(EXTRACT_FIELD(ms, MSTATUS_VM) == VM_CHOICE);
